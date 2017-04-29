@@ -9,9 +9,10 @@ var
     watch        = require('gulp-watch'),
 
     rimraf       = require('rimraf'), // For clear
-
     pug          = require('gulp-pug'),
-
+    //JS
+    rename       = require('gulp-rename'),
+    uglify       = require('gulp-uglify'),
     //PostCSS
     autoprefixer = require('autoprefixer'),
     sourcemaps   = require('gulp-sourcemaps'),
@@ -41,7 +42,8 @@ var onError = function (err) {
 var paths = {
     css: './src/css/main.css',
     pug: './src/*.pug',
-    pugAll: './src/**/*.pug'
+    pugAll: './src/**/*.pug',
+    js: 'src/js/**/*.js'
 };
 
 var postcssProcessors = [
@@ -69,6 +71,9 @@ gulp.task('watch', ['build'], function () {
     watch(paths.css, function () {
         seq('css');
     });
+    watch(paths.js, function () {
+        seq('js');
+    });
 });
 
 gulp.task('server', function () {
@@ -81,7 +86,7 @@ gulp.task('server', function () {
 });
 
 gulp.task('build', function (cb) {
-    seq('clean', ['html', 'css'], cb);
+    seq('clean', ['html', 'css', 'js'], cb);
 });
 
 gulp.task('clean', function (cb) {
@@ -118,4 +123,15 @@ gulp.task('html', function () {
         .pipe(browserSync.reload({
             stream: true
         }));
+});
+
+gulp.task('js', function () {
+    return gulp.src(paths.js)
+        .pipe(plumber({
+            errorHandler: onError
+        }))
+        .pipe(uglify())
+        .pipe(rename('app.js'))
+        .pipe(gulp.dest('dest/js/'))
+        .pipe(browserSync.reload({stream: true}));
 });
