@@ -1,1 +1,2 @@
-@import "test.css";
+@import "helpers/normalize.css";
+@import "helpers/variables.css";

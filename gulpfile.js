@@ -43,7 +43,8 @@ var paths = {
     css: './src/css/main.css',
     pug: './src/*.pug',
     pugAll: './src/**/*.pug',
-    js: 'src/js/**/*.js'
+    js: 'src/js/**/*.js',
+    img: 'src/img/**/*'
 };
 
 var postcssProcessors = [
@@ -73,6 +74,9 @@ gulp.task('watch', ['build'], function () {
     });
     watch(paths.js, function () {
         seq('js');
+    });
+    watch(paths.img, function () {
+        seq('img');
     });
 });
 
@@ -133,5 +137,17 @@ gulp.task('js', function () {
         .pipe(uglify())
         .pipe(rename('app.js'))
         .pipe(gulp.dest('dest/js/'))
+        .pipe(browserSync.reload({stream: true}));
+});
+
+gulp.task('img', function () {
+    return gulp.src(paths.img)
+        .pipe(imagemin({
+            optimizationLevel: 2,
+            progressive: true,
+            interlaced: true,
+            multipass: true
+        }))
+        .pipe(gulp.dest('dest/img'))
         .pipe(browserSync.reload({stream: true}));
 });
