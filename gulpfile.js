@@ -10,6 +10,9 @@ var
 
     rimraf       = require('rimraf'), // For clear
     pug          = require('gulp-pug'),
+    //svg
+    svgmin       = require('gulp-svgmin'),
+    imagemin     = require('gulp-imagemin'),
     //JS
     rename       = require('gulp-rename'),
     uglify       = require('gulp-uglify'),
@@ -44,7 +47,8 @@ var paths = {
     pug: './src/*.pug',
     pugAll: './src/**/*.pug',
     js: 'src/js/**/*.js',
-    img: 'src/img/**/*'
+    img: 'src/img/**/*',
+    svg: 'src/**/*.svg'
 };
 
 var postcssProcessors = [
@@ -78,6 +82,9 @@ gulp.task('watch', ['build'], function () {
     watch(paths.img, function () {
         seq('img');
     });
+    watch(paths.svg, function () {
+        seq('svg');
+    });
 });
 
 gulp.task('server', function () {
@@ -90,7 +97,7 @@ gulp.task('server', function () {
 });
 
 gulp.task('build', function (cb) {
-    seq('clean', ['html', 'css', 'js'], cb);
+    seq('clean', ['html', 'css', 'js', 'img', 'svg'], cb);
 });
 
 gulp.task('clean', function (cb) {
@@ -136,7 +143,7 @@ gulp.task('js', function () {
         }))
         .pipe(uglify())
         .pipe(rename('app.js'))
-        .pipe(gulp.dest('dest/js/'))
+        .pipe(gulp.dest('./dest/js/'))
         .pipe(browserSync.reload({stream: true}));
 });
 
@@ -148,6 +155,13 @@ gulp.task('img', function () {
             interlaced: true,
             multipass: true
         }))
-        .pipe(gulp.dest('dest/img'))
+        .pipe(gulp.dest('./dest'))
+        .pipe(browserSync.reload({stream: true}));
+});
+
+gulp.task('svg', function () {
+    return gulp.src(paths.svg)
+        .pipe(svgmin())
+        .pipe(gulp.dest('./dest/img'))
         .pipe(browserSync.reload({stream: true}));
 });

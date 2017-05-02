@@ -12,12 +12,11 @@ html
         meta(property='og:image:width', content='1043')
         meta(property='og:image:height', content='539')
 
-
         block title
-
+        link(rel="icon", type="image/svg+xml", href="favicon.svg")
         link(rel="stylesheet" href="./css/main.css")
 
     body
-        include blocks/header
+        include particles/header
         block content
-        include blocks/footer
+        include particles/footer

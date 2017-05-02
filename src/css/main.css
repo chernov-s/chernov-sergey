@@ -1,2 +1,5 @@
-@import "helpers/normalize.css";
-@import "helpers/variables.css";
+@import "base/normalize.css";
+@import "base/variables.css";
+@import "base/global.css";
+
+@import "particles/header.css";
