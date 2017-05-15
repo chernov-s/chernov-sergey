@@ -10,7 +10,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #51C5FD;
+  color: $blue;
   &:hover {
     text-decoration: underline;
   }

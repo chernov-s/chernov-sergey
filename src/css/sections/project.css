@@ -1,6 +1,86 @@
 .project {
-  display: flex;
-  &__item {
+  &__holder {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+  }
 
+  &__filter {
+    &-list {
+      list-style: none;
+      display: inline-flex;
+      justify-content: flex-end;
+      li {
+        display: block;
+        padding: 5px 10px;
+        a {
+          border-bottom: 1px dashed $blue;
+          &:hover {
+            border-bottom: 1px dashed $blue;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    flex-basis: 48%;
+    padding: 5px;
+    &-thumb {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 250px;
+      background-color: #F5F7FA;
+      position: relative;
+      img {
+        display: block;
+        max-width: 90%;
+        max-height: 100%;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      }
+      .handler {
+        position: absolute;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        top: 15px;
+        right: 15px;
+        bottom: 15px;
+        left: 15px;
+
+        background-color: $red;
+        color: white;
+        transition: all 350ms cubic-bezier(.445,.050,.55,.95);
+        opacity: 0;
+
+        .desc {
+          ul {
+            margin-left: 2em;
+          }
+        }
+        .tags {
+          span {
+            padding: 5px;
+            font-size: 0.8rem;
+            border: 1px solid white;
+            margin-right: 2px;
+          }
+        }
+      }
+      &:hover {
+        .handler {
+          opacity: 0.95;
+        }
+      }
+    }
   }
 }

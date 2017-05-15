@@ -1,25 +1,31 @@
 include _tmpl
--
-    projectJSON = [
-        {
-            name: 'Проект',
-            img: 'img/aori.jpg',
-            link: '',
-            tags: ['']
-        }
-    ]
+include source/_project
 
 mixin projectAbout(item)
     .project__item
         a.project__item-thumb(href= item.link)
             img(src= item.img)
-        p
-            item.name
+            .handler
+                .desc!= item.desc
+                .tags
+                    for tag in item.tags
+                        span= tag
 
-
+mixin filter(item)
+    li
+        a(href='#')= item.label
 +tmpl('project')
-    for item in projectJSON
-        +projectAbout(item)
+    .project__holder
+        .title
+            h2 Портфолио
+        .project__filter
+            ul.project__filter-list
+                for item in filter
+                    +filter(item)
+
+    .project__list
+        for item in projectJSON
+            +projectAbout(item)
 
 
 
