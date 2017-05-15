@@ -29,6 +29,7 @@
   &__holder {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
     margin-bottom: 1em;
   }
 
@@ -41,6 +42,7 @@
         display: block;
         padding: 5px 10px;
         a {
+          border-bottom: 1px dashed $blue;
           &:hover, &.active {
             border-bottom: 1px solid $blue;
             text-decoration: none;
