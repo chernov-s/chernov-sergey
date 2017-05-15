@@ -146,6 +146,7 @@ gulp.task('js', function () {
         }))
         .pipe(uglify())
         .pipe(rename('app.js'))
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./dest/js/'))
         .pipe(browserSync.reload({stream: true}));
 });

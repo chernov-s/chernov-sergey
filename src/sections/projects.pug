@@ -1,8 +1,8 @@
 include _tmpl
 include source/_project
 
-mixin projectAbout(item)
-    .project__item
+mixin projectProject(item)
+    .project__item.js-filter-item.active(data-category= item.category)
         a.project__item-thumb(href= item.link)
             img(src= item.img)
             .handler
@@ -13,7 +13,9 @@ mixin projectAbout(item)
 
 mixin filter(item)
     li
-        a(href='#')= item.label
+        a.js-filter-category(href='javascript:void(0)', data-category= item.category)= item.label
+
+
 +tmpl('project')
     .project__holder
         .title
@@ -25,7 +27,8 @@ mixin filter(item)
 
     .project__list
         for item in projectJSON
-            +projectAbout(item)
+            +projectProject(item)
+    br(style="clear: both;")
 
 
 
