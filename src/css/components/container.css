@@ -1,0 +1,21 @@
+.container {
+  position: relative;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (--tetris) {
+    width: $tetris;
+  }
+
+  @media (--mobile) {
+    width: $mobile;
+  }
+
+  @media (--tablet) {
+    width: $tablet;
+  }
+  @media (--desktop) {
+    width: $desktop;
+  }
+}

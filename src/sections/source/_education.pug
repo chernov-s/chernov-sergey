@@ -1,0 +1,48 @@
+-
+    eduJSON = [
+        {
+            date: {
+                begin: '2016',
+                end: 'по настоящее время'
+            },
+            school: 'ДВФУ',
+            themeType: 'Тема кандидатской: ',
+            profession: 'Информатика и вычислительная техника',
+            theme: 'Обработка гидроаккустических изображений в условиях нестабильности ГБО'
+        },
+        {
+            date: {
+                begin: '2014',
+                end: '2016'
+            },
+            school: 'ДВФУ',
+            themeType: 'Тема магистерской: ',
+            profession: 'Прикладная математика и информатика',
+            theme: 'Построение гидроаккустических изображений с ГБО'
+        },
+        {
+            date: {
+                begin: '2010',
+                end: '2014'
+            },
+            school: 'ДВФУ',
+            profession: 'Прикладная информатика',
+            themeType: 'Тема ВКР: ',
+            theme: 'Разработка интернет магазина'
+        }
+    ]
+
+mixin renderEduItem(item)
+    .card__item
+        .card__item-date
+            span.from= item.date.begin
+            | &nbsp;—&nbsp;
+            span.to= item.date.end
+        .card__item-body
+            p #[strong #{item.school}], #{item.profession}
+            p #[strong #{item.themeType}] #{item.theme}
+
+
+mixin renderEdu
+    for item in eduJSON
+        +renderEduItem(item)

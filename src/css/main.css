@@ -1,5 +1,12 @@
-@import "base/normalize.css";
-@import "base/variables.css";
-@import "base/global.css";
+@import "helpers/variables.css";
+
+@import "components/global.css";
+@import "components/container.css";
+@import "components/nav.css";
 
 @import "particles/header.css";
+
+@import "sections/common.css";
+@import "sections/home.css";
+@import "sections/resume.css";
+@import "sections/about.css";

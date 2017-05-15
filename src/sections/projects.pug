@@ -1,0 +1,26 @@
+include _tmpl
+-
+    projectJSON = [
+        {
+            name: 'Проект',
+            img: 'img/aori.jpg',
+            link: '',
+            tags: ['']
+        }
+    ]
+
+mixin projectAbout(item)
+    .project__item
+        a.project__item-thumb(href= item.link)
+            img(src= item.img)
+        p
+            item.name
+
+
++tmpl('project')
+    for item in projectJSON
+        +projectAbout(item)
+
+
+
+

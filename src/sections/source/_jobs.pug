@@ -1,0 +1,67 @@
+-
+    jobsJSON = [
+        {
+            date: {
+                begin: 'Июнь 2015',
+                end: 'февраль 2016',
+                total: '9 месяцев'
+            },
+            company: 'Axeta',
+            city: 'Владивосток',
+            site: 'www.axeta.ru',
+            url: 'http://axeta.ru',
+            profession: 'Front-end разработчик',
+            respons: '<p>Работая в данной компании, я многому научился, спасибо всей команде. ' +
+            '<p>Участвовал как в мелких, так и в крупных проектах, где тесно сотрудничал с back-end разработчиками и дизайнерами. ' +
+            'За это время познакомился со сборщиками проектов Gulp и Grunt, ' +
+            'для написания разметки использовал Jade, для стилей препроцессоры Less и Sass,' +
+            ' что позволило значительно ускорить разработку. Все исходники хранил в системе контроля версий Git и Perforce.</p>' +
+            '<p>Так же меня привлекали к долгосрочным проектам, которые компания разрабатывала более года. ' +
+            'В этих проектах использовались стек технологии Yii2 + Marionette.js, Yii2 + AngularJS,' +
+            ' где мной были исправленны множество ошибок и добавлены более 20 модулей.</p>'
+        },
+        {
+            date: {
+                begin: 'Июнь 2013',
+                end: 'октябрь 2013',
+                total: '5 месяцев'
+            },
+            company: 'WebSee',
+            city: 'Владивосток',
+            site: 'www.websee.ru',
+            url: 'http://websee.ru',
+            profession: 'Full Stack разработчик',
+            respons: 'Обязанности: полный цикл Front End разработки, настройка CMS, ' +
+            'написание расширений для систем управления сайтом (MODx и Joomla), а так же поисковая оптимизация <br/>' +
+            'В рамках работы в этой компании принял участия в более 10 проектах.'
+        }
+    ]
+
+
+mixin renderJobItem(item)
+    .card__item
+        .card__item-date
+            span.from= item.date.begin
+            | &nbsp;—&nbsp;
+            span.to= item.date.end
+        .card__item-body
+            h4.title= item.profession
+            b= item.company + ', '
+            a(href=item.url, target="_blank")= item.site
+            div !{item.respons}
+
+mixin renderJob
+    .card__item
+        .card__item-date
+            span.from июль 2016
+            | &nbsp;—&nbsp;
+            span.to по настостоящее время
+        .card__item-body
+            h4.title Freelance
+            div Используя современные технологии, верстал кросбраузерные сайты - фиксированные, резиновые, адаптивные.
+                |  Разрабатывал проекты как с нуля (PHP, Yii2, MySql), так и на основе CMS (Wordpress, MODx).
+                |  Реализовывал парсеры. В крайне сжатые сроки разработал новогоднюю акцию от сети кинотеатров "Иллюзион"
+                a(href="http://2017.illuzion.ru", target="_blank") 2017.illuzion.ru
+
+    for item in jobsJSON
+        +renderJobItem(item)

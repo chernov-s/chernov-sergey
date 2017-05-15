@@ -1,0 +1,17 @@
+include _tmpl
+include source/_jobs
+include source/_education
+
++tmpl('resume')
+    h2 Резюме
+    .row
+        .card
+            h3 Опыт работы
+            +renderJob
+
+        .card
+            h3 Образование
+            +renderEdu
+
+
+

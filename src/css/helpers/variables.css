@@ -1,0 +1,20 @@
+/*---- Colors -----*/
+$black-1: #000;
+$black-2: #565656;
+$black-3: #e4f6d7;
+$black-4: #e4f6d7;
+
+$blue-1: #4AB9BF;
+
+
+/*---- Break Points -----*/
+
+$desktop: 990px;
+$tablet: 768px;
+$mobile: 480px;
+$tetris: 320px;
+
+@custom-media --tetris (max-width: 479px);
+@custom-media --mobile (min-width: 480px) and (max-width: 767x);
+@custom-media --tablet (min-width: 768px) and (max-width: 989px);
+@custom-media --desktop (min-width: 990px);

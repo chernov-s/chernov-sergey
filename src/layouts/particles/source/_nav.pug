@@ -1,0 +1,24 @@
+-
+    navJSON = [
+        {
+            label: 'Обо мне',
+            url: 'javascript:void(0)'
+        },
+        {
+            label: 'Проекты',
+            url: 'javascript:void(0)'
+        },
+        {
+            label: 'Контакты',
+            url: 'javascript:void(0)'
+        }
+    ]
+
+mixin renderItem(item)
+    li.nav__item
+        a(href= item.url)= item.label
+
+mixin renderNav
+    ul.nav
+        for item in navJSON
+            +renderItem(item)

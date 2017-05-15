@@ -1,0 +1,19 @@
+.nav {
+  list-style: none;
+  display: inline-flex;
+  &__item {
+    margin-left: 15px;
+    a {
+      text-decoration: none;
+      color: black;
+      padding: 5px 2px;
+      &:hover {
+        border-bottom: 1px solid black;
+      }
+    }
+
+    @media (--tetris) {
+      margin-left: 10px;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+.resume {
+  h3 {
+    margin-bottom: 10px;
+  }
+}
+
+.card {
+  h3 {
+    font-size: 2rem;
+    border-bottom: 1px solid $black-1;
+  }
+  &__item {
+    padding-left: 20px;
+
+    &-date {
+      position: relative;
+      color: $black-2;
+      &:before {
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background-color: $black-1;
+        left: -15px;
+        top: 4px;
+      }
+    }
+
+    &-body {
+      position: relative;
+      padding-bottom: 10px;
+      color: $black-2;
+      &:before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        left: -10px;
+        border-left: 1px solid $black-1;
+      }
+    }
+
+    .title {
+      font-size: 1.2rem;
+    }
+  }
+}

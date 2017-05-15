@@ -1,0 +1,60 @@
+include _tmpl
+-
+    aboutJSON = [
+        {
+            label: 'Обо мне',
+            inner: 'Мне 24. Увлекаюсь программированием ещё со школы. Сейчас могу смело заявить, что сверстал ' +
+                'более 50 сайтов. Резюме можете посмотреть <a href="resumeChernovSS.pdf">здесь</a>',
+            more: []
+        },
+        {
+            label: 'Часто использую',
+            inner: '',
+            more: [
+                {
+                    type: 'Front-end',
+                    list: ['Canvas', 'Gulp', 'React', 'PostCSS', 'Pug(Jade)', 'SASS', 'ES6', 'Bootsrap']
+                },
+                {
+                    type: 'Back-end',
+                    list: ['PHP7', 'Yii2']
+                },
+                {
+                    type: 'Инструменты',
+                    list: ['PhpStorm', 'Sublime', 'PhotoShop', 'Adobe Illustrator' ]
+                },
+                {
+                    type: 'Другое',
+                    list: ['MODx', 'Joomla', 'WordPress', 'MySql', 'Apache', 'Git']
+                }
+            ]
+        },
+        {
+            label: 'Опыт использования',
+            inner: '',
+            more: [
+                {
+                    type: '',
+                    list: ['Grunt', 'AngularJS', 'BackboneJS', 'Symphony', 'Laravel', 'Jira', 'nginx', 'MongoDB']
+                }
+            ]
+        }
+    ]
+
+mixin renderAbout(item)
+    .about__content-label= item.label
+    .about__content-inner!= item.inner
+        for el in item.more
+            h3= el.type
+            for tool in el.list
+                span.tag= tool
+
+
++tmpl('about')
+    .about__content
+        for item in aboutJSON
+            +renderAbout(item)
+
+
+
+
