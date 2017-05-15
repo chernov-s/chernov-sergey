@@ -1,5 +1,4 @@
 .about {
-  padding-top: 5em;
   padding-bottom: 5em;
   &__content {
     display: flex;

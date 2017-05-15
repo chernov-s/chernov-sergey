@@ -1,4 +1,7 @@
 include _tmpl
 
 +tmpl('home')
-    h2 Привет
+    .home__intro#js-intro
+        noscript
+            h2 У вас отключен либо не поддерживается JavaScript
+        canvas#js-canvas(height=440)

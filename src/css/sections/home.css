@@ -1,3 +1,9 @@
 .home {
+  &__intro {
+    position: relative;
+    margin-bottom: 50px;
+    transition: all .4s;
+    height: 440px;
+  }
 
 }

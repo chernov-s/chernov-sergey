@@ -16,6 +16,7 @@ var
     //JS
     rename       = require('gulp-rename'),
     uglify       = require('gulp-uglify'),
+    include      = require('gulp-include'),
     //PostCSS
     autoprefixer = require('autoprefixer'),
     sourcemaps   = require('gulp-sourcemaps'),
@@ -48,7 +49,8 @@ var paths = {
     cssAll: './src/css/**/*.css',
     pug: './src/*.pug',
     pugAll: './src/**/*.pug',
-    js: 'src/js/**/*.js',
+    js: 'src/js/app.js',
+    jsAll: 'src/js/**/*.js',
     img: 'src/img/**/*',
     svg: 'src/**/*.svg'
 };
@@ -79,7 +81,7 @@ gulp.task('watch', ['build'], function () {
     watch(paths.cssAll, function () {
         seq('css');
     });
-    watch(paths.js, function () {
+    watch(paths.jsAll, function () {
         seq('js');
     });
     watch(paths.img, function () {
@@ -141,12 +143,14 @@ gulp.task('html', function () {
 
 gulp.task('js', function () {
     return gulp.src(paths.js)
-        .pipe(plumber({
-            errorHandler: onError
-        }))
-        .pipe(uglify())
-        .pipe(rename('app.js'))
-        .pipe(sourcemaps.write('.'))
+        .pipe(sourcemaps.init())
+            .pipe(include())
+            .pipe(plumber({
+                errorHandler: onError
+            }))
+            .pipe(uglify())
+            .pipe(rename('app.js'))
+        .pipe(sourcemaps.write('../maps'))
         .pipe(gulp.dest('./dest/js/'))
         .pipe(browserSync.reload({stream: true}));
 });
