@@ -46,7 +46,7 @@ window.requestAnimationFrame = (function(){
         this.p = new Vector(this.curXY.x, this.curXY.y)
         this.radius = radius;
         this.active = true;
-        this.color = colors[randomInt(0, colors.length)];
+        this.color = colors[randomInt(0, colors.length - 1)];
         //this.color = "#000";
     }
 
