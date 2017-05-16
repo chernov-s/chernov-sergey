@@ -53,7 +53,7 @@ mixin renderAbout(item)
 
 
 +tmpl('about')
-    .about__content
+    .about__content#about
         for item in aboutJSON
             +renderAbout(item)
 

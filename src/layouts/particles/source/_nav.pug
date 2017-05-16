@@ -2,21 +2,21 @@
     navJSON = [
         {
             label: 'Обо мне',
-            url: 'javascript:void(0)'
+            url: '#about'
         },
         {
             label: 'Портфолио',
-            url: 'javascript:void(0)'
+            url: '#portfolio'
         },
         {
             label: 'Контакты',
-            url: 'javascript:void(0)'
+            url: '#contacts'
         }
     ]
 
 mixin renderItem(item)
     li.nav__item
-        a(href= item.url)= item.label
+        a.go-to(href= item.url)= item.label
 
 mixin renderNav
     ul.nav

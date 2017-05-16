@@ -4,6 +4,7 @@
 
     function init() {
         Filter.init();
+        Scroll.init();
     }
 
     init();
