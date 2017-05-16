@@ -3,7 +3,7 @@ include source/_project
 
 mixin projectProject(item)
     .project__item.js-filter-item.active(data-category= item.category)
-        a.project__item-thumb(href= item.link)
+        a.project__item-thumb(href= item.link, target="_blank")
             img(src= item.img)
             .handler
                 .desc!= item.desc
