@@ -195,14 +195,15 @@ window.requestAnimationFrame = (function(){
             {word: "ПРИВЕТ", time: 2500, effect: 1},
             {word: "МЕНЯ ЗОВУТ*ЧЕРНОВ СЕРГЕЙ", time: 2500, effect: 1 },
             {word: "Я ФРОНТЕНД*РАЗРАБОТЧИК", time: 2500, effect: 2 },
-            {word: "ЕСТЬ ИНТЕРЕСНЫЙ*ПРОЕКТ?", time: 3500, effect: 2 },
-            {word: "А ЕСЛИ НАЙДУ?", time: 4500, effect: 2 },
+            {word: "ЕСТЬ ИНТЕРЕСНЫЙ*ПРОЕКТ?", time: 3500, effect: 1 },
+            {word: "А ЕСЛИ НАЙДУ?", time: 3500, effect: 2 }
         ],
         mouse = new Vector(),
         isDown = false,
         currentText = 0, currentNode = 0, timer,
         //colors = ["#351330", "#424254", "#64908A", "#567779", "#3B2A41"];
-        colors = ["#351330", "#424254", "#64908A", "#C7AE8C", "#CC2A41"];
+        //colors = ["#351330", "#424254", "#64908A", "#C7AE8C", "#CC2A41"];
+        colors = ["#351330", "#424254", "#64908A", "#CC2A41"];
 
     // Event Listeners
 
@@ -277,7 +278,7 @@ window.requestAnimationFrame = (function(){
      * @param {number} length длина слова
      * @param {number} number номер символа в слове
      * @param {number} rows количество строк
-     * @param {number} row номер строка
+     * @param {number} row номер строки
      * @return {x, y} структура
      */
     function getOffset(length, number, rows, row) {
@@ -407,7 +408,7 @@ window.requestAnimationFrame = (function(){
         canvas.addEventListener('mouseup', mouseUp, false);
         window.addEventListener('resize', resize, true);
 
-        addObj(2000);
+        addObj(1000);
 
         nextText();
 
