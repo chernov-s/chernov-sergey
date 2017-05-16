@@ -12,11 +12,13 @@ $red: #cc2a41;
 /*---- Break Points -----*/
 
 $desktop: 990px;
-$tablet: 768px;
-$mobile: 480px;
+$tablet: 738px;
+$mobile: 430px;
 $tetris: 320px;
 
+@custom-media --small (max-width: 768px);
+
 @custom-media --tetris (max-width: 479px);
-@custom-media --mobile (min-width: 480px) and (max-width: 767x);
+@custom-media --mobile (min-width: 480px) and (max-width: 767px);
 @custom-media --tablet (min-width: 768px) and (max-width: 989px);
 @custom-media --desktop (min-width: 990px);

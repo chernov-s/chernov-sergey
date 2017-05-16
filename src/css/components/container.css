@@ -4,6 +4,11 @@
   margin-left: auto;
   margin-right: auto;
 
+  @media (--small) {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
   @media (--tetris) {
     width: $tetris;
   }

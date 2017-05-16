@@ -15,6 +15,9 @@ mixin filter(item)
     li
         a.js-filter-category(href='javascript:void(0)', data-category= item.category)= item.label
 
+mixin filterMobile(item)
+    option(value= item.category)= item.label
+
 
 +tmpl('project')
     .project__holder#portfolio
@@ -27,6 +30,11 @@ mixin filter(item)
             ul.project__filter-list
                 for item in filter
                     +filter(item)
+            .project__filter-mobile
+                p Показать:
+                select.js-filter-category-mobile
+                    for item in filter
+                        +filterMobile(item)
 
     .project__list
         for item in projectJSON

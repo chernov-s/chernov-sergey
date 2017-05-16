@@ -21,5 +21,14 @@
     flex: 1;
     justify-content: flex-end;
     flex-direction: row;
+    @media (--small) {
+      align-items: center;
+    }
   }
+
+  @media (--small) {
+    flex-direction: column;
+    height: 6em;
+  }
+
 }

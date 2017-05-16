@@ -195,8 +195,8 @@ window.requestAnimationFrame = (function(){
             {word: "ПРИВЕТ", time: 2500, effect: 1},
             {word: "МЕНЯ ЗОВУТ*ЧЕРНОВ СЕРГЕЙ", time: 2500, effect: 1 },
             {word: "Я ФРОНТЕНД*РАЗРАБОТЧИК", time: 2500, effect: 2 },
-            {word: "ЕСТЬ ИНТЕРЕСНЫЙ*ПРОЕКТ?", time: 3500, effect: 1 },
-            {word: "А ЕСЛИ НАЙДУ?", time: 3500, effect: 2 }
+            {word: "ЕСТЬ*ИНТЕРЕСНЫЙ*ПРОЕКТ?", time: 3500, effect: 1 },
+            {word: "А ЕСЛИ*НАЙДУ?", time: 3500, effect: 2 }
         ],
         mouse = new Vector(),
         isDown = false,

@@ -44,7 +44,8 @@ include _tmpl
     ]
 
 mixin renderAbout(item)
-    .about__content-label= item.label
+    .about__content-label
+        span.title= item.label
     .about__content-inner!= item.inner
         for el in item.more
             h3= el.type

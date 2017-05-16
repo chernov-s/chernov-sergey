@@ -1,6 +1,7 @@
 var Filter = (function () {
 
     var $category = document.querySelectorAll('.js-filter-category'),
+        $categoryMobile = document.querySelector('.js-filter-category-mobile'),
         $item = document.querySelectorAll('.js-filter-item');
 
     return {
@@ -23,6 +24,9 @@ var Filter = (function () {
 
                 });
             });
+            $categoryMobile.addEventListener('change', function (e) {
+                self._toggle(this.value);
+            })
         },
 
         /*
