@@ -133,7 +133,7 @@ gulp.task('html', function () {
             errorHandler: onError
         }))
         .pipe(pug({
-            pretty: true
+            pretty: false
         }))
         .pipe(gulp.dest('./dest'))
         .pipe(browserSync.reload({
